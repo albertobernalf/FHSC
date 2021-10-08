@@ -1,0 +1,21 @@
+select * from movcont3 where doccod='TCO' AND MVCNRO IN (30570,30590)
+
+select * from movcont2 where doccod='TCO' AND MVCNRO IN (30570,30590)
+
+
+select * from movcont3 where doccod='TCO' 
+select * from movcont3 where doccod='TCO' AND MVCNRO = 30570
+
+
+BEGIN TRANSACTION;
+UPDATE MOVCONT3
+SET MVCFCH=CONVERT(VARCHAR(19),'2016-11-07 00:00:00.000',120)
+ where doccod='TCO' AND MVCNRO IN (30570)
+ -- COMMIT;
+ SP_HELP MOVCONT2
+
+ BEGIN TRANSACTION;
+UPDATE MOVCONT2
+SET MVCCFCH=CONVERT(VARCHAR(19),'2016-11-07 00:00:00.000',120)
+ where doccod='TCO' AND MVCNRO IN (30570,30571,30572,30573,30574,30575,30576)
+ -- COMMIT;

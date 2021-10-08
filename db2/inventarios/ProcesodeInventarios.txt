@@ -1,0 +1,22 @@
+Pasos Cierre de Imnventarios
+
+0. verificar Parametrizacion de Inventarios
+1.Activar Bodega 81 Temporal
+2.Hacer  traslado deloquese va a inventariar de Bodega 01 aBodega 81
+3.Bloquear Bodega 01
+4.Terminar de realizar trasladossi aun faltan.
+5.Crear Boletas
+6.Correr script por cada boleta para ACTIVAR el Inventario
+7.Imprimir Boleta 1
+8.Boleta-Modificar para ingresar modifiar conteos,crear stock ,crear lotes
+9.Adicionar para crear nuevos productosaboletas ya existentes
+10. Cierre de comntesopara cerrar conteos.si semodificasedebe
+     cerrar losconteos>0 alque se modifica
+11. Generar ajuste para generar documentos de las diferencias.
+     Al confirmar se guarda eldocumento ISI creado.
+12.Consultar para consultar  como van losconteos.
+13. Cuando yo genero,opcomienzo eltercer conteoelprograsma
+    automaticamente me deja para tercer comnteolasinconsistencioas
+por decirlo asi .
+
+

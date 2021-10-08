@@ -1,0 +1,49 @@
+
+Request - {
+    "documento": {     
+        "tipoDocumento": 1,
+        "subTipoDocumento": "01",
+        "generaRepresentacionGrafica": true,
+        "fechaEmision": "2021-07-15",
+        "horaEmision": "13:30:10-05:00",
+        "unidadNegocio": "Empresa",
+        "tipoOperacion": "10",
+        "plantilla": "1",
+        "notificaciones": [{
+                "tipo": 1,
+                
+            }
+        ],
+        "formaPago": {
+            "tipoPago": 2,
+            "codigoMedio": "1",
+            "fechaVencimiento": "2021-08-14"
+        }
+    },
+    "adquiriente": {
+        "tipoIdentificacion": 11,
+        "tipoRegimen": "49",
+        "correo": "recepcioncuentasmedicas@nuevaeps.com.co",
+        "tipoPersona": "1",
+        "ubicacion": {
+            "pais": "CO",
+            "codigoMunicipio": "11001",
+            "direccion": "CRA 85 K # 46A-66"
+        }
+    },
+    ],
+    "detalles": [{
+            "tipoDetalle": 1,
+            "codigoEstandar": "999",
+            "unidadMedida": "04",
+            "valorCodigoEstandar": "5DSA01",
+            "tributos": [{
+                    "id": "01",
+                    "nombre": "01",
+                    "esImpuesto": true,
+                    "valorImporte": 0.00,
+                    "valorBase": 50221.00,
+                    "porcentaje": 0.00
+                }
+            ]
+        }, {

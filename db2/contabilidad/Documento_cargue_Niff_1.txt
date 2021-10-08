@@ -1,0 +1,28 @@
+Buenas tardes
+
+
+Ing Jeisson
+
+
+El inconveniente sobre el cargue de saldos iniciales Niif de la empresa Fundacion proteccion Amparo de niños se radica con Digitaware, no hay respuesta hasta el momento.
+
+Consultoria en visita en semanas pasadas dijo que era necesario cancelar algunas horas de consultoria.
+
+El Ing, Bladimir opina que el proceso de cargue de saldos iniciales, contiene falencias por el hecho de haber generado un solo documento Local/Niif para subir saldos.
+
+Aconsejamos junto con Bladimir y Yovanny:
+
+En ambiente de pruebas con una instancia replica de la actual productiva realizar los siguientes procesos:
+
+1. Anular y/o cancelar el documento contable SIF, de saldos iniciales.
+2- Crear parametrizacion de documentos de saldos iniciales para la fundacion Amparo de niños en la contabilidad local como en Niif.
+3. Crear archivos cargue de saldos iniciales por aparte. Tanto local como Niif.
+4. Subir ambos archivos de cargue de saldos.
+5. Verificar que suban los saldos a cuentas x pagar y a cuentas x cobrar Niif.
+6. Mayorizar mes Enero 2019
+7. Validar el resultados consultando saldos iniciales Niif
+8. Si la informacion es correcta, realizar procesos en hosvital productivo
+
+
+Cordial Saludo
+

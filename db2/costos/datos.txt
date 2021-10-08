@@ -1,0 +1,100 @@
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=01
+) as Pabellon_01,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=01
+
+) as Pabellon_01,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=02
+) as Pabellon_02,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=02
+
+) as Pabellon_02,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=03
+) as Pabellon_03,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=03
+
+) as Pabellon_03,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=04
+) as Pabellon_04,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=04
+
+) as Pabellon_04,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=05
+) as Pabellon_05,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=05
+
+) as Pabellon_05,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=06
+) as Pabellon_06,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=06
+
+) as Pabellon_06,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=07
+) as Pabellon_07,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=07
+
+) as Pabellon_07,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=08
+) as Pabellon_08,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=08
+
+) as Pabellon_08,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=09
+) as Pabellon_09,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=09
+
+) as Pabellon_09,
+(select mpnomp
+from hosvital.maepab m
+where m.mpcodp=10
+) as Pabellon_10,
+(select sum(mae2.mavatp)
+from hosvital.maeate mae, hosvital.maeate2 mae2
+where mae.mptdoc = i.mptdoc and mae.mpcedu=i.mpcedu and mae.mactving=i.ingcsc and
+           mae.mpnfac = mae2.mpnfac  and mae2.fcptpotrn='F' and mae2.maesanup <> 'S' and mae.maestf  not in ('1','10') and mae.mpnfac = i.ingfac and mae2.macodpab=10
+
+) as Pabellon_10,

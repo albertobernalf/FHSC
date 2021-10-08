@@ -1,0 +1,48 @@
+-- Caso Paciente '1030692443 ';
+SELECT * FROM HOSVITAL.TMPFAC WHERE TFCEDU='1030692443';
+SELECT * FROM HOSVITAL.TMPFAC1 WHERE TFCEDU='1030692443';
+
+
+select * from maeate where
+
+select * from hosvital.maepab11 where mpcedu= '1030692443';
+SELECT * FROM HOSVITAL.MAEPAB1 WHERE  mpuced ='1030692443';
+SELECT * FROM HOSVITAL.MAEPAB1 WHERE MPNUMC = '762';
+
+
+update hosvital.maepab1
+set mpdisp=1,MPFCHI='2021-07-13 23:25:59.00000', MPUCED='1030692443',MPUDOC='CC',MPCTVIN=1,MPULTCTVO=0
+ where mpnumc in ('762')  and mpcodp = 17;
+
+SELECT * FROM HOSVITAL.INGRESOS WHERE MPCEDU='1030692443';  -- 21  OBH02
+SELECT * FROM HOSVITAL.INGRESOMP WHERE MPCEDU='1030692443';
+
+update hosvital.ingresomp set ingfecmoe='0001-01-01 00:00:00.0000'   -- estaba 2021-02-11 17:44:23.000000	
+WHERE MPCEDU='1030692443' and ingcodcam = '762' and ingcsc=1;
+
+insert into hosvital.ingresomp values ('1030692443','CC',2,1,11,16,	'762','2021-07-13 23:59:59.000000', ,'0001-01-01 00:00:00.000000',	0);	
+);
+
+
+select tfccodcam,  clapro from hosvital.tmpfac where tfcedu= '1030692443';
+
+update  HOSVITAL.TMPFAC   -- estaba vacio, 8
+set  tfccodcam='762', clapro= 2
+WHERE TFCEDU='1030692443' and tmctving=1;
+
+
+SELECT  * FROM HOSVITAL.INGRESOS WHERE MPCEDU= '1030692443';
+
+UPDATE HOSVITAL.INGRESOS SET clapro =2   , MPNUMC = '762' ,  ingfecegr='0001-01-01 00:00:00.000'  -- estaba  cklapro=5, obh02 / 2021-02-11 03:53:01.000000	
+ WHERE MPCEDU= '1030692443' AND INGCSC=1;
+
+
+select TFCOCAMI,MPFESH from hosvital.tmpfac where tfcedu= '1030692443';
+
+
+UPDATE HOSVITAL.TMPFAC
+SET TFCOCAMI='', MPFESH='0001-01-01 00:00:00.000000' -- ESTABA 2021-02-11 03:53:01.000000		
+WHERE TFCEDU='1030692443' AND TMCTVING=1;
+
+
+--  Fin 

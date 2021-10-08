@@ -1,0 +1,27 @@
+select * From hosvital.movcont2 where DOCCOD='DRF' AND MVCNRO=377;
+
+SELECT * FROM HOSVITAL.MOVCXC WHERE DOCCOD='03' AND MCCNUMOBL = 'FAN-2020';
+SELECT * FROM HOSVITAL.HOJOBL WHERE EMPCOD='03' AND HOJNUMOBL= 'FAN-2020';
+
+/*
+SE VA A BORRAR ESTE REGISTRO
+03	FAN-2020       	79953850       	2021	13050501            	003      	   	             	   	   	2020-06-30 14:56:41.000000	0.00	0.00	0.00	430000.00	0.00	   	                              	0	0	0001-01-01	                    	0001-01-01 00:00:00.000000	 	N	0001-01-01	0001-01-01	0001-01-01	0.00	 	                    	  	0	 	0		0001-01-01 00:00:00.000000	          	 	               	                              	                              	0	 	 	       	0001-01-01 00:00:00.000000	                    	          	0001-01-01 00:00:00.000000	 	          	0001-01-01 00:00:00.000000	   	
+
+
+
+
+*/
+
+
+DELETE  FROM HOSVITAL.HOJOBL 
+WHERE EMPCOD='03' AND HOJNUMOBL= 'FAN-2020' AND CNTVIG=2021 AND DOCCOD='' AND CLICOD =79953850       	
+ ;
+
+
+UPDATE  HOSVITAL.HOJOBL 
+SET HOJTOTCRE=1550000
+ WHERE EMPCOD='03' AND HOJNUMOBL= 'FAN-2020' AND CNTVIG=2021 AND DOCCOD='FVF';
+
+UPDATE  hosvital.movcont2 
+SET MVCDOCRF3='FVF'
+where DOCCOD='DRF' AND MVCNRO=377 AND  MVCCSC=3;

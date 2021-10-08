@@ -1,0 +1,26 @@
+estos son los pasos que debemos seguir para salir a producciòn
+
+
+1. tener el JAR que se ha asegurado para el proceso de facturación electrónica con el que se han realizado todas las pruebas requeridas.
+1.1. se debe hacer la conexión del Client.cfg a la base de datos de producción
+
+2. se debe tener a la mano los query de las tablas de GN_HOMC respectivas y entregadas.
+
+3. se debe tener parametrizado cada uno de los terceros (clientes o adquirentes) referentes al anexo técnico de la DIAN
+
+4. se debe tener en cuenta la homologación de la tabla GN_HOMC2 qué sons las homologaciones principales desde hosvital hacia la DIAN
+
+5. tener la parametrización de PATH 145 para la conexión del servicio web del operador
+
+6.  tener la parametrización de PATH 16 referente a los documentos generados (facturas) para el cliente
+
+
+7. hacer a parametrización de DINICLOUD (parámetro indicado por el Operador Tecnológico)
+
+8. se debe hacer la actualización del documento de facturación en donde se indica resolución de facturación para el proceso de facturación electrónica.
+
+9. tener la marcación del flag 193 para q no se anulen facturas sino que se hagan notas crédito.
+
+10. tener en cuenta los parámetros indicados en el manual de facturación electrónica entregado para la funcionalidad
+
+11. Falta las tareas programadas

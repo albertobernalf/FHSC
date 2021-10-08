@@ -1,0 +1,22 @@
+--  Generar SQL 
+--  Versión:                   	V7R1M0 100423 
+--  Generado en:              	12/07/21 09:03:55 
+--  Base de datos relacional:       	IASP 
+--  Opción de estándares:          	DB2 for i 
+CREATE TRIGGER HOSVIPRU.ACTUALIZACITA 
+	AFTER UPDATE ON HOSVIPRU.CITMED 
+	REFERENCING OLD AS O 
+	NEW AS NUEVA 
+	FOR EACH ROW 
+	MODE DB2SQL 
+	SET OPTION  ALWBLK = *ALLREAD , 
+	ALWCPYDTA = *OPTIMIZE , 
+	COMMIT = *NONE , 
+	DECRESULT = (31, 31, 00) , 
+	DFTRDBCOL = *NONE , 
+	DYNDFTCOL = *NO , 
+	DYNUSRPRF = *USER , 
+	SRTSEQ = *HEX   
+	UPDATE HOSVIPRU . VISTACEX 
+	SET ESTADO_CITA = 'Confirmada' 
+	WHERE HOSVIPRU . VISTACEX . CITA = NUEVA . CITNUM  ;

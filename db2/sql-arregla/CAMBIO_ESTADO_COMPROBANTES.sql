@@ -1,0 +1,28 @@
+﻿Por favor cambiar de estado cerrado a abierto al documento CFA 21098.
+CFA 21096 Y 21095
+ CFA 21957 y NCO 13
+select * from movcont3 where doccod='AJE' AND MVCNRO= 3094 
+
+select MVCEST,* from movcont3
+where doccod='TDR' AND MVCNRO=23641         --,17127,17126,17128,17129,17130,17131,17132)
+
+
+-- ESTABA EN ESTADO 'C' Cerrado
+
+BEGIN TRANSACTION;
+UPDATE movcont3
+SET MVCEST ='S'
+where doccod='TDR' AND MVCNRO IN (23641)
+-- COMMIT
+-- ROLLBACK
+
+-- 58992
+SELECT 
+
+
+SELECT MVCEST, COUNT(*) FROM  movcont3 GROUP BY MVCEST
+
+SELECT * FROM MAEEMP -- LIMIT 100
+WHERE MENOMB LIKE ('%SERVI%')
+
+SELECT * FROM EMPRESS WHERE EMPDSC LIKE ('%SERVI%')

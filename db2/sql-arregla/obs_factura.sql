@@ -1,0 +1,24 @@
+﻿select * from pg_class where relname like ('%maea%')
+
+select * from maeate limit 10
+
+SELECT maobsfac FROM MAEATE WHERE MPNFAC = 2394937     
+  
+
+
+FACTURA 2248097 - PINES 1942711-1942712-1942721-1942722
+ 
+FACTURA 2248091 - PINES 1942636-1942637-1942649
+ 
+FACTURA 2248092 - 23.5 HORAS. PINES 1942661-1942662-1942672-1942673
+ 
+FACTURA 2248095 - PINES 1942683-1942684-1942698-1942699
+
+
+
+begin transaction;
+update maeate
+set maobsfac=  'PINES 3735345, 3735346, 3735362, 3735363, 3735369, 3735370, 3735383'
+where mpnfac =2394937                              
+  
+	-- 	 COMMIT

@@ -1,0 +1,65 @@
+Que desea revisar ?
+QUIERO QUE INGRESEMOS A PRUEBAS Y A SQL PARA VERIFICAR EL PLAN DE CUENTAS CON VIGENCIA 2018
+OK
+Esta en cero
+POR FAVOR INGRESEMOS A HOSVITAL PARA VERIFICAR EL PLAN DE CUENTAS Y DESPUES CONSULTAMOS NUEVAMENTE EN SQL
+OK
+2018 No hay la idea es hacer nuevamente el proceso completo
+Lo ejecuto ?}
+SI S
+
+Ing ya acabo
+pero antes de ver resultados quiero comentarle algo :
+En ambiente de pruebas se hizo una actualziacion asi :
+isolation level	                read committed
+Nose que va apasar ahorita
+
+Pero el vide enviado por SAC que es produccion y en el cual se evidencio el caso esta asi :
+isolation level	read committed snapshot. Como ve inge esta diferente
+
+Ahora si veamos RESULTADOS del ejercicio :
+
+Ops No se por que no termina el query
+
+POR FAVOR ENTREMOS A H
+VOLVAMOS A REALIZAR LA CONSULTA EN SQL
+VEO QUE YA TERNMINO LACONSULTA
+
+Aqui funciono correctamete
+LO que evidenciamos con la parte tecnica es que la cuentas se cargan en la vase de datos al cerrar la pantalla de cuentas
+realizamos el ejercicio creando varias vigencias y la consulta no arroja resultados hasta no salir de la pantalla y consultar la vigencia creada
+
+Entiendo, pero me sucitan preguntas :
+PAra el usuario Final da por hecho que la informacion esta creada y grabada . Seria mejor el commit inmediato al INSERT sin esperar a que
+el usuario cierre la ventana
+SI SEÑOR, VOY A VALIDAR CON LAS PERSONAS DE DESARROLLO PARA VERIFICAR COMO SE PUEDE SOLUCIONAR
+
+Hay otras pregunta para que por favor consulte con desarrollo
+
+DigitalWare en l¡elprograma hosvital en cada transaccion hace uso de instrucciones
+
+SET TRANSACTION READ COMMITED  o
+SET TRANSACTION READ NOCOMMIT
+
+La pregunta es por que admeas de esto se evidencia por SQL que el 80% de las transacciones SON READ NOCOMMITED y tan solo el 20% son READ COMMITED
+
+Ing, desea validar algo mas o quedamos asi ?
+YA VALIDE CON LA PARTE TECNICA Y ME INFORMAN QUE EL MEJOR ESCENARIO ES DEJAR EL READ COMMITED SNAPSHOT
+Y PARA EL GUERDADO DE LOS DATOS CUANDO SE GENERAN ME DICEN QUE PASE L CASO
+ENTONCES VOY A PASAR EL CASO A DESARROLLO PARA MEJORAR ESE GUARDADO DE DATOS
+
+Entiendo, y sobre las trsnsacciones en el codigo por que al conectarse un usuario la bse de datos dice que el usuario esta con ISILATIOS READ NOCOMMITED
+?
+Sin hacer nada tan solo con conectarse a hosvital
+Es decir con solo un usuario conectarse a HOSVITAL Aistencial o Financiero implica o la base lo toma como conexion con ISOLATIO
+
+ING; LA BASE DE DATOS DEBE DE QUEDAR CON LA PROPIEDAD ISOLATION LEVEL READ COMMITED SNAPSHOT O MINIMO READ COMMITED; LAS CONEXIONES QUE SE HACEN MEDIANTE EL JTDS CONFIGURADO EN EL 
+CLIENT:CFG ESTAN CON LA PROPIEDAD UR: ES DECIR UNREAD COMMITED;ESTAMOS VALIDANDO PARA LAS PROXIMAS ACTUALIZACIONES CAMBIAR LA PROPIEDAD EN EL CLIENT
+PERO NO SE PUEDE HACER DE UNA VEZ YA QUE A NIVEL DE CODIGO; EN ESTE MOMENTO HAY VARIAS O MUCHAS TRANSACCIONES QUE ESTAN REQUIRIENDO QUE SEA UNREAD COMMITED
+
+
+LISTO ing. eNTIENDO
+
+Muchas gracias  Ing, estamos ATENTOS
+Debo salir a una reunion
+Muchas gracias

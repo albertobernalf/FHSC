@@ -1,0 +1,29 @@
+select * from hosvital.terceros where trcrazsoc like ('%DRUG%');
+select * from hosvital.movcont2 where mvcanio=2020 and mvcmes in (1,2) and TRCCOD='823004940' AND MVCIMPCOD LIKE ('%ICA%');
+
+SELECT * FROM HOSVITAL.MOVCONT3 WHERE (EMPCOD,DOCCOD,MVCNRO) IN (SELECT EMPCOD,DOCCOD,MVCNRO  from hosvital.movcont2 where mvcanio=2020 and mvcmes in (1,2) and TRCCOD='823004940' AND MVCIMPCOD LIKE ('%ICA%'))   ;
+
+
+select DOCCOD,MVCNRO,CNTCOD,MVCDOCRF1,MVCNAT,MVCDET,MVCBSE,MVCVLR, MVCIMPCOD, MVCMES  from hosvital.movcont2 where mvcanio=2020 and mvcmes in (1,2) and TRCCOD='823004940' AND MVCIMPCOD LIKE ('%ICA%');
+
+select MVCIMPCOD,CNTCOD,MVCNAT,SUM(MVCBSE),SUM(MVCVLR)
+from hosvital.movcont2 where mvcanio=2020 and mvcmes in (1,2) and TRCCOD='823004940' AND MVCIMPCOD LIKE ('%ICA%')
+GROUP BY MVCIMPCOD,CNTCOD ,MVCNAT ;
+
+/*
+RTICA07 	23658501            	C	30931998.00	128060.00	
+RTICA01 	22050502            	D	3425711.00	3325885.00	
+RTICA01 	23658501            	D	3425711.00	14183.00	
+
+
+*/
+
+select MVCIMPCOD,CNTCOD,MVCNAT,SUM(MVCBSE),SUM(MVCVLR)
+from hosvital.movcont2 where mvccfch>='2020-01-01' and mvccfch <= '2020-02-29' and TRCCOD='823004940' AND MVCIMPCOD LIKE ('%ICA%')
+GROUP BY MVCIMPCOD,CNTCOD ,MVCNAT ;
+
+SELECT * FROM HOSVITAL.GRUPIMP;
+
+SELECT * FROM HOSVITAL.IMPUEST;
+
+SELECT * FROM HOSVITAL.IMPUESTOS;

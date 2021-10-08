@@ -1,0 +1,17 @@
+
+SELECT * FROM hosvinew.MOVCONT2 WHERE EMPCOD='01' AND MVCANIO>=2017 AND MVCMES>=1  AND CNTCOD LIKE ('11100501%');
+
+SELECT * FROM hosvinew.RSMAUX  WHERE RSMEMPCOD='01' AND RSMANO=2020 AND RSMMES>=1 AND RSMCTNCON LIKE ('11100501%');  -- 38432.64	
+
+SELECT (R.RSMSALACT - RSMSALANT), R.* FROM hosvinew.RESMCUE R WHERE RSMEMPCOD='01' AND RSMANO=2017 AND RSMMES>=1 AND RSMCTNCON  LIKE ('11100501%')
+AND (R.RSMSALACT - RSMSALANT) > 0;
+
+SELECT * FROM hosvinew.MOVCONT2 WHERE CntCod = '11100501' and cntvig >= '2020'; AND MvCAnio = '2020' AND MvCMes = '02';
+
+SELECT * FROM hosvinew.RSMAUX WHERE Rsmctncon = '11100501'; AND RsmAno = '2020' AND RsmMes = '02';
+
+SELECT * FROM hosvinew.RESMCUE WHERE Rsmctncon = '11100501' AND RsmAno = '2020' AND RsmMes = '02';
+
+select * from hosvinew.movcont2 where mvcanio=2020 and mvcmes=2 and doccod='RNA' AND CNTCOD= '11100501';
+select * from hosvinew.movcont2 where  mvcanio=2020 and mvcvlr= 38432.64	
+;

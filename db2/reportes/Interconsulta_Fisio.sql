@@ -1,0 +1,6 @@
+select  a.histipdoc as tipo_documento, a.hisckey as documento, a.mecode as codigo_especilidad, b.menome as descripcion_especialidad,c.mpnfac as factura,c.prcodi as procedimiento,d.prnomb as observacion_procedimiento,c.MaCanPr as cantidad_procedimientos,c.MPInte as Valor_Unitario,c.macanpr * c.mpinte as Valor_total_Procedmiento from	hosvital.intercn as a inner join hosvital.maeesp as b on a.mecode=b.mecode inner join hosvital.maepro as d on	(1=1) inner join hosvital.maeate as e on (1=1) inner join hosvital.maeate2 as c on e.MATipDoc=c.MATipDoc inner join hosvital.intercn1 as f on a.mecode=f.mecode where c.mafepr>='2019-03-01 00:00:00' and c.mafepr<='2019-03-31 00:00:00' and c.prcodi in ('890413','89040235','890410','890411','890412','S12103','S12203');
+
+select * from hosvital.maepro where prcodi in ('890413','890410','890411','890412');
+
+select  mafepr, m.prcodi , m1.prnomb,mavatp from hosvital.maeate2 m , hosvital.maepro m1 where mafepr >= '2019-01-01 00:00:00' and mafepr <= '2019-03-31 23:59:59' and m.prcodi in  ('890413','890410','890411','890412') and
+       m.prcodi=m1.prcodi order by  mafepr ;

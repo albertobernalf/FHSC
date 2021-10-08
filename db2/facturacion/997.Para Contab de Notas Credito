@@ -1,0 +1,13 @@
+select * from hosvipru.cuentas where cntvig=2020 and cntcod='13030601';
+
+update  hosvipru.cuentas 
+set cntintcxc ='2'
+where cntvig=2020 and cntcod='13030601';
+
+
+
+select * from hosvipru.nicuentas where nicntvig=2020 and nicntcod='13030601';
+
+update  hosvipru.nicuentas 
+set nicntic ='2'
+where nicntvig=2020 and nicntcod='13030601';

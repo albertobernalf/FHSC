@@ -1,0 +1,213 @@
+
+		 MV BODEGA DE VACUNACION
+		 DE ENERO A NOVIEBRE
+
+
+		 SELECT C.BODDESC Bodega,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVES AS TIpo_Movimiento,MOVCNT AS Cantidad, A.MOVVLU AS Valor_Unitario , A.MOVVLT AS Valor_Total, 
+		  D.BODDESC AS Bodega_Destino,
+		  A.movsld as saldo,a.trancod as Transaccion,a.movnraut AS Aut, a.movreqn as Nro_Requisicion, A.MOVREQN as Consecutivo,A.MOVSOLN AS Sol_Mvto,
+		    A.MOVTIPDOC,A.MOVCODPAC
+		  FROM KARDEX1 A, MAESUM1 B, BODEGAS C, BODEGAS D
+		  WHERE A.BODEGA=33 AND A.MOVFCH >= '2016-01-01' AND A.MOVFCH<= '2016-11-30 23:59:59' AND
+		       A.MSRESO=B.MSRESO AND C. BODDESC LIKE ('%VACUNA%') AND D.BODEGA =A.MOVBOD
+		 ORDER BY A.MOVFCH
+
+		 SELECT * FROM BODEGAS WHERE BODDESC LIKE ('%VACUNA%')
+
+-- KArdex de transaciones SLAIS-SALRMIS
+SELECT * FROM KARDEX1
+
+ SELECT C.BODDESC Bodega,A.TRANCOD AS TRANSACCION,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVES AS TIpo_Movimiento,MOVCNT AS Cantidad, A.MOVVLU AS Valor_Unitario , A.MOVVLT AS Valor_Total, 
+		  D.BODDESC AS Bodega_Destino,
+		  A.movsld as saldo,a.trancod as Transaccion,a.movnraut AS Aut, a.movreqn as Nro_Requisicion, A.MOVREQN as Consecutivo,A.MOVSOLN AS Sol_Mvto,
+		    A.MOVTIPDOC,A.MOVCODPAC
+		  FROM KARDEX1 A, MAESUM1 B, BODEGAS C, BODEGAS D, GRUPOS X, GRUPOS1 Y 
+		  WHERE   A.BODEGA IN ('08','14') AND
+		  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+		       A.MSRESO=B.MSRESO  AND B.MSGRPCOD= X.GrpCod AND 
+			    X.GrpCod=Y.GrpCod  AND			   
+			   D.BODEGA =A.MOVBOD AND A.TranCod IN ('SALASIS','SALREMIS') --AND A
+		 ORDER BY A.MOVFCH
+
+
+		 -- ULTIMA VERSION ESTA MALA
+
+		  SELECT C.BODDESC Bodega,A.TRANCOD AS TRANSACCION,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVES AS TIpo_Movimiento,MOVCNT AS Cantidad, A.MOVVLU AS Valor_Unitario , A.MOVVLT AS Valor_Total, 
+		  D.BODDESC AS Bodega_Destino,
+		  A.movsld as saldo,a.trancod as Transaccion,a.movnraut AS Aut, a.movreqn as Nro_Requisicion, A.MOVREQN as Consecutivo,A.MOVSOLN AS Sol_Mvto,
+		    A.MOVTIPDOC,A.MOVCODPAC, T.CCPCstPFi AS COSTO_ROMEDIO
+		  FROM KARDEX1 A, MAESUM1 B, BODEGAS C, BODEGAS D, GRUPOS X, GRUPOS1 Y , CTRCSTPRM T
+		  WHERE   A.BODEGA IN ('08','14') AND
+		  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+		       A.MSRESO=B.MSRESO  AND B.MSGRPCOD= X.GrpCod AND 
+			    X.GrpCod=Y.GrpCod  AND			   
+			   D.BODEGA =A.MOVBOD AND A.TranCod IN ('SALASIS','SALREMIS') AND
+			    A.DOCTIP=T.CCPDocCod AND A.DocNro=T.CCPNroDoc AND A.MovCsc = T.CCPMOVCSC AND A.MSRESO = T.CCPMSRESO
+		 ORDER BY A.MOVFCH
+
+
+
+		 SELECT * FROM GRUPOS
+		 SELECT * FROM GRUPOS1
+
+
+
+		 SELECT * FROM KARDEX1
+		 SELECT * FROM KARDEX
+		 SELECT * FROM MAESUM1
+		 SELECT * FROM CTRCSTPRM
+		 SP_HELP CTRCSTPRM
+
+		 SP_HELP KARDEX1
+
+		 SELECT * FROM sys.tables WHERE NAME LIKE ('%PRM%')
+
+		 -- ULTIMA VERSION APRECE
+
+		 
+ SELECT C.BODDESC Bodega,A.TRANCOD AS TRANSACCION,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVES AS TIpo_Movimiento,MOVCNT AS Cantidad, A.MOVVLU AS Valor_Unitario , A.MOVVLT AS Valor_Total, 
+		  D.BODDESC AS Bodega_Destino,
+		  A.movsld as saldo,a.trancod as Transaccion,a.movnraut AS Aut, a.movreqn as Nro_Requisicion, A.MOVREQN as Consecutivo,A.MOVSOLN AS Sol_Mvto,
+		    A.MOVTIPDOC,A.MOVCODPAC, --  CASE WHEN  MovCnt*MovVlU  <> 0 THEN (MovVlT/(MovCnt*MovVlU)) ELSE 0 END AS COSTO_PROMEDIO
+			A.MovVlU AS COSTO_PROMEDIO
+		  FROM KARDEX1 A, MAESUM1 B, BODEGAS C, BODEGAS D, GRUPOS X, GRUPOS1 Y 
+		  WHERE   A.BODEGA IN ('08','14') AND
+		  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+		       A.MSRESO=B.MSRESO  AND B.MSGRPCOD= X.GrpCod AND 
+			    B.MSGRPCOD=Y.GrpCod  AND B.MsSGrpCd = Y.SGrpCod AND
+					A.BODEGA = C.BODEGA AND		   
+			   D.BODEGA =A.MOVBOD AND A.TranCod IN ('SALASIS','SALREMIS') 
+		 ORDER BY A.MOVFCH -- 86659
+
+-- SON EN TOTAL
+
+SELECT COUNT(*) FROM KARDEX1 WHERE TranCod IN ('SALASIS','SALREMIS') AND 
+MOVFCH >= '2016-07-01' AND MOVFCH<= '2016-07-31 23:59:59' -- 86695
+
+SELECT * FROM GRUPOS1
+
+-- El mismo query pero con Left Join
+
+
+SELECT * FROM TRANINV WHERE TranCod LIKE ('%REMI%')
+
+ SELECT C.BODDESC Bodega,A.TRANCOD AS TRANSACCION,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVCNT AS Cantidad, A.MOVVLU AS Costo_Unitario , A.MOVVLT AS Costo_Total, 
+		  D.BODDESC AS Bodega_Destino,
+				A.MovVlU AS COSTO_PROMEDIO
+		  FROM KARDEX1 A
+		  INNER JOIN  MAESUM1 B ON (A.MSRESO=B.MSRESO)
+		  INNER JOIN  BODEGAS C  ON (C.BODEGA = A.BODEGA  )
+		  INNER JOIN  BODEGAS D ON (D.BODEGA =A.MOVBOD)
+		  LEFT JOIN  GRUPOS X  ON (X.GrpCod =  B.MSGRPCOD)
+		  LEFT JOIN  GRUPOS1 Y  ON (Y.GrpCod=  B.MSGRPCOD AND Y.SGrpCod=  B.MsSGrpCd )
+		  WHERE   A.BODEGA IN ('08','14') AND  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+				   A.TranCod IN ('SALASIS','SALREMIS') 
+		 ORDER BY A.MOVFCH -- 86659 / 86660
+
+		 SELECT * FROM BODEGAS
+
+		 -- El mismo query pero con la transaccion ENTREMIS
+
+		 SELECT C.BODDESC Bodega,A.TRANCOD AS TRANSACCION,A.MSRESO Cod_Suministro,B.MSNOMG Suministro,B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+  A.DOCTIP TIpo_Doc,A.DOCNRO Documento,
+		  MOVFCH AS FECHA, MOVES AS TIpo_Movimiento,MOVCNT AS Cantidad, A.MOVVLU AS Valor_Unitario , A.MOVVLT AS Valor_Total, 
+		  D.BODDESC AS Bodega_Destino,
+		  A.movsld as saldo,a.trancod as Transaccion,a.movnraut AS Aut, a.movreqn as Nro_Requisicion, A.MOVREQN as Consecutivo,A.MOVSOLN AS Sol_Mvto,
+		    A.MOVTIPDOC,A.MOVCODPAC, --  CASE WHEN  MovCnt*MovVlU  <> 0 THEN (MovVlT/(MovCnt*MovVlU)) ELSE 0 END AS COSTO_PROMEDIO
+			A.MovVlU AS COSTO_PROMEDIO
+		  FROM KARDEX1 A, MAESUM1 B, BODEGAS C, BODEGAS D, GRUPOS X, GRUPOS1 Y 
+		  WHERE   A.BODEGA IN ('08','14') AND
+		  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+		       A.MSRESO=B.MSRESO  AND B.MSGRPCOD= X.GrpCod AND 
+			    B.MSGRPCOD=Y.GrpCod  AND B.MsSGrpCd = Y.SGrpCod AND
+					A.BODEGA = C.BODEGA AND		   
+			   D.BODEGA =A.MOVBOD AND A.TranCod IN ('SALASIS','SALREMIS','ENTREMIS') 
+		 ORDER BY A.MOVFCH -- 86659  / 87026 ..  DIf: 327 Registros ...
+
+
+
+-- Como seria el kardex ( Acumulado):
+
+SELECT A.MSRESO Cod_Suministro,
+B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+B.MSNOMG Suministro, SUM(MOVCNT) AS Cantidad, sum(A.MOVVLU) AS Costo_Unitario ,
+   sum(A.MOVVLT) AS Costo_Total, SUM(A.MovVlU) AS COSTO_PROMEDIO
+                  FROM KARDEX1 A
+                  INNER JOIN  MAESUM1 B ON (A.MSRESO=B.MSRESO)
+                  INNER JOIN  BODEGAS C  ON (C.BODEGA = A.BODEGA  )
+                  INNER JOIN  BODEGAS D ON (D.BODEGA =A.MOVBOD)
+                  LEFT JOIN  GRUPOS X  ON (X.GrpCod =  B.MSGRPCOD)
+                  LEFT JOIN  GRUPOS1 Y  ON (Y.GrpCod=  B.MSGRPCOD AND Y.SGrpCod=  B.MsSGrpCd )
+                  WHERE   A.BODEGA IN ('08','14') AND  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+                                   A.TranCod IN ('SALASIS','SALREMIS') 
+                                                                   group by A.MSRESO ,B.MSNOMG,B.MSGRPCOD , X.GRPDSC ,B.MsSGrpCd ,
+   Y.SGRPDSC 
+
+   SELECT * FROM KARDEX1
+   -- Este seria viendo sumas y restas
+
+
+SELECT A.MSRESO Cod_Suministro,
+   B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+B.MSNOMG Suministro, 
+SUM(CASE WHEN MOVES = 'S' THEN -MOVCNT     WHEN  MOVES  = 'E' THEN MOVCNT END) AS Cantidad, 
+sum(CASE WHEN MOVES = 'S' THEN -A.MOVVLU   WHEN MOVES = 'E' THEN A.MOVVLU END ) AS Costo_Unitario ,
+sum(CASE WHEN MOVES = 'S' then  -A.MOVVLT  WHEN MOVES = 'E' then A.MOVVLT end) AS Costo_Total, 
+SUM(CASE WHEN MOVES = 'S' then -A.MovVlU   WHEN MOVES = 'E' then A.MovVlU  end) AS COSTO_PROMEDIO
+                  FROM KARDEX1 A
+                  INNER JOIN  MAESUM1 B ON (A.MSRESO=B.MSRESO)
+                  INNER JOIN  BODEGAS C  ON (C.BODEGA = A.BODEGA  )
+                  INNER JOIN  BODEGAS D ON (D.BODEGA =A.MOVBOD)
+                  LEFT JOIN  GRUPOS X  ON (X.GrpCod =  B.MSGRPCOD)
+                  LEFT JOIN  GRUPOS1 Y  ON (Y.GrpCod=  B.MSGRPCOD AND Y.SGrpCod=  B.MsSGrpCd )
+                  WHERE   A.BODEGA IN ('08','14') AND  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+                                   A.TranCod IN ('SALREMIS','ENTREMIS') 
+group by A.MSRESO ,B.MSNOMG,B.MSGRPCOD , X.GRPDSC ,B.MsSGrpCd ,Y.SGRPDSC 
+
+SELECT * FROM KARDEX1 WHERE MSRESO= '000034342-03' AND BODEGA IN ('08','14') AND TranCod IN ('SALASIS','SALREMIS','ENTREMIS') AND
+     MOVFCH >= '2016-07-01' AND MOVFCH<= '2016-07-31 23:59:59'
+
+-- ESte seria el query :
+
+
+
+	 SELECT * FROM KARDEX1 WHERE MOVCODPAC = '20652342'
+
+	 -- Este seria el query para soo SALREMIS
+
+	 SELECT A.MSRESO Cod_Suministro,
+   B.MSGRPCOD AS GRUPO, X.GRPDSC AS DESCRIPCION,B.MsSGrpCd AS SUBGRUPO ,
+   Y.SGRPDSC AS DESCRIPCION,
+B.MSNOMG Suministro, 
+CONVERT(numeric, SUM(MOVCNT)) AS Cantidad, 
+CONVERT(numeric(12,2),sum(A.MOVVLU)) AS Costo_Unitario ,
+CONVERT(numeric(12,2),sum(A.MOVVLT)) AS Costo_Total, 
+CONVERT(numeric(12,2),SUM(A.MovVlU)) AS COSTO_PROMEDIO
+                  FROM KARDEX1 A
+                  INNER JOIN  MAESUM1 B ON (A.MSRESO=B.MSRESO)
+                  INNER JOIN  BODEGAS C  ON (C.BODEGA = A.BODEGA  )
+                  INNER JOIN  BODEGAS D ON (D.BODEGA =A.MOVBOD)
+                  LEFT JOIN  GRUPOS X  ON (X.GrpCod =  B.MSGRPCOD)
+                  LEFT JOIN  GRUPOS1 Y  ON (Y.GrpCod=  B.MSGRPCOD AND Y.SGrpCod=  B.MsSGrpCd )
+                  WHERE   A.BODEGA IN ('08','14') AND  A.MOVFCH >= '2016-07-01' AND A.MOVFCH<= '2016-07-31 23:59:59' AND
+                                   A.TranCod IN ('SALASIS','SALREMIS') 
+group by A.MSRESO ,B.MSNOMG,B.MSGRPCOD , X.GRPDSC ,B.MsSGrpCd ,Y.SGRPDSC 
+
+
+

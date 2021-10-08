@@ -1,0 +1,33 @@
+select  * from HOSVITAL.kardex1 where msreso= '0718ACC01' ORDER BY MOVFCH ;
+select  * from hosvital.kardex1 where msreso= '0718ACC01' ORDER BY MOVFCH ;
+
+select * from hosvital.movinv3 where doccod='ISI' AND DOCNRO=1153861	;
+select * from hosvital.movinv4 where doccod='ISI' AND DOCNRO=1153861	;
+
+
+select  * from HOSVITAL.kardex1 where msreso= '0349ACC01' ORDER BY MOVFCH ;
+
+SELECT * FROM HOSVITAL.REQUISICI WHERE REQNRO = 60079;
+SELECT * FROM HOSVITAL.REQUISI1  WHERE REQNRO = 60079;
+
+
+
+SELECT * FROM HOSVITAL.REQUISICI WHERE REQNRO = 60231;
+SELECT * FROM HOSVITAL.REQUISI1  WHERE REQNRO = 60231;
+
+select * from HOSVITAL.movinv3 where doccod='ITI' AND DOCNRO=75486	;
+select * from HOSVITAL.movinv4 where doccod='ITI' AND DOCNRO=75486	;
+select * from HOSVITAL.movinv4 where doccod='ITI' AND DOCNRO=75485	;
+
+-- El arreglo seria este :
+
+select  * from HOSVITAL.kardex1 where msreso= '0718ACC01' ORDER BY MOVFCH ;
+
+-- 1 Arreglo
+/*
+UPDATE HOSVITAL.kardex1  -- Son COMO 30
+SET MOVVLU=20289,500, MOVVLT=MOVCNT*MOVVLU
+where msreso= '0718ACC01' AND DOCTIP='ISI' AND  DOCNRO>= 1153861 AND MOVFCH>= '2019-12-31 00:00:00';
+*/
+SELECT * FROM HOSVITAL.KARDEX WHERE MSRESO='0718ACC01' ORDER BY BODEGA;
+SELECT * FROM HOSVITAL.CTRCSTPRM WHERE CCPMSRESO= '0718ACC01';

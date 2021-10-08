@@ -1,0 +1,43 @@
+Buen dia 
+
+a) Introduccion
+
+En el montaje inicial de las Niif en la fundacion se concibieron (3) empresas ._
+El ingeniero que comenzo el montaje Niif en la empresa :Fundacion proteccion Amparo de niños, no lo pudo terminar quedo incompleto ,
+pues dejo de trabajar con la Fundacion.
+
+El area de Contabilidad, solicita el favor que le realicemos el cargue de los saldos iniciales, por que exisye un docum,entio de cargue inicial
+"SIF", el cual fue subido a esta contabilidad
+
+b) Analisis tecnico de lo encontrado:
+
+
+
+No esta parametrizado cuentas x cobrar Niif
+No esta parametrizado cuentas por pagar Niif
+No esta parametrizado inventarios Niif
+Documento de cargue de saldos iniciales SIF local como niif
+Hay movimiento contable en las tablas en local como en NIIF de el primer semestre del 2019
+Estan cerrados los peridos contables local y niif hasta mayo del 2019
+Esta creado el plan de cuenta Niif vigencia 2019
+
+Hay un documento de cargue de saldos tanto en local como en niff, pero los saldos iniciales no se reflejan en las tablas: nirsmgen  y nirsmaux
+
+c) Propuesta
+	Se han elaborado unos querys que leen del documento SIF y llena en las tablas nirsmgen  y nirsmaux el saldop anterior.
+        Esto se puede hacer asi ?. estaria correcto ? o hayb que observar algo
+	El saldo actual como se actualiza
+
+d) Soporte y/o ayuda a DigitalWare
+
+Se requiere cargar saldos iniciales a Enero del 2019 y poder mayorizar
+imprimir balance de prueba para los tres primeros meses inicialmente
+
+
+
+Favor nos indica como podemos tener estos saldos iniciales en esta empresa. La propuesta nos puede servir'
+
+
+Muchas gracias
+
+

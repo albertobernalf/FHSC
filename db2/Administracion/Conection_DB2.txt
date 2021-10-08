@@ -1,0 +1,24 @@
+Provider=OLEDBSQL;Database=HOSVITAL;Hostname=192.168.0.186;Protocol=TCPIP;
+Port=5544;Uid=abernal;Pwd=750222;
+
+Provider=DB2OLEDB;Database=HOSVITAL;Hostname=192.168.0.186;Protocol=TCPIP;
+Port=5544;Uid=abernal;Pwd=750222;
+
+
+Provider=DB2OLEDB;Network Transport Library=TCPIP;
+Network Address=192.168.0.186;Initial Catalog=HOSVITAL;
+Package Collection=MyPkgCol;Default Schema=HOSVITAL;User ID=ABERNAL;
+Password=750222;
+
+
+Provider=DB2OLEDB;Network Transport Library=TCPIP;
+Network Address=192.168.0.186;port=5544;Initial Catalog=s10b409t;
+Default Schema=HOSVITAL;User ID=abernal;
+Password=750222;
+
+
+
+Provider=IBMDADB2;Network Transport Library=TCPIP;
+Network Address=192.168.0.186;port=5544;Initial Catalog=s10b409t;
+Default Schema=HOSVITAL;User ID=abernal;
+Password=750222;

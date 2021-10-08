@@ -1,0 +1,2 @@
+select * from hosvital.movcont2 where cntvig=2021 and mvcmes>= 5 and trccod='901100507';
+select doccod,mvcnro, cntcod, trccod, mvcvlr ,mvcimpcod from hosvital.movcont2 where empcod='03' and cntvig=2021 and mvcmes>= 5 and trccod='901100507';
